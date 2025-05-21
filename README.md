@@ -53,17 +53,6 @@ All new columns and derived metrics in the dataset were created using advanced *
 
 ---
 
-## 📁 Repository Structure
-
-```plaintext
-├── dataset/              # Raw inventory dataset (Excel)
-├── dashboard/            # Power BI file and screenshots
-├── excel-commands/       # All logic, formulas, and derivation steps
-├── README.md             # Project overview (this file)
-```
-
----
-
 ## 🛠 Tools & Technologies
 
 - **Microsoft Excel** – Data cleaning, preprocessing, and logic modeling  
