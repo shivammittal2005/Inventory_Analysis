@@ -48,7 +48,7 @@ All new columns and derived metrics in the dataset were created using advanced *
 - Coefficient of variation & CV ranking  
 - Inventory turnover ratio  
 
-📎 Formula explanations are available in: "       "[2) Readme_Excel_Logic.md](https://github.com/shivammittal2005/Inventory_Analysis/blob/5708bf3a66d1f72e670976e66511399ecdb222d3/2\)%20Readme_Excel_Logic.md)
+📎 Formula explanations are available in:  &nbsp[2) Readme_Excel_Logic.md](https://github.com/shivammittal2005/Inventory_Analysis/blob/5708bf3a66d1f72e670976e66511399ecdb222d3/2\)%20Readme_Excel_Logic.md)
 ---
 
 ## 🛠 Tools & Technologies
