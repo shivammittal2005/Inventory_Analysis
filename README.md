@@ -50,7 +50,6 @@ All new columns and derived metrics in the dataset were created using advanced *
 
 📎 Formula explanations are available in:  
 ![](https://github.com/shivammittal2005/Inventory_Analysis/blob/main/2\)%20Readme_Excel_Logic.md)
-
 ---
 
 ## 🛠 Tools & Technologies
