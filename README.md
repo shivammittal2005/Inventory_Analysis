@@ -69,7 +69,7 @@ All new columns and derived metrics in the dataset were created using advanced *
 - Track revenue and demand patterns over time
 - Visualize stock efficiency (turnover, value in warehouse)
 
-🖼️ *Preview screenshot included in `/dashboard/`*
+[🖼️ *Preview screenshot included in `/dashboard/`*](https://github.com/shivammittal2005/Inventory_Analysis/blob/main/3\)%20Dashboard/Dashboard_Overview.png)
 
 ---
 
@@ -88,7 +88,7 @@ This solution enables **inventory managers, analysts, and supply chain planners*
 Clone or download this repository. Open the `.pbix` file in Power BI Desktop and the Excel workbook to explore the logic behind the visuals.
 
 ```bash
-git clone https://github.com/your-username/inventory-management-analysis.git
+git clone https://github.com/shivammittal2005/Inventory_Analysis.git
 ```
 
 ---
