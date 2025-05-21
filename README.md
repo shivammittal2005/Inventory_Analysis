@@ -69,7 +69,7 @@ All new columns and derived metrics in the dataset were created using advanced *
 - Track revenue and demand patterns over time
 - Visualize stock efficiency (turnover, value in warehouse)
 
-[🖼️ *Preview screenshot included in `/dashboard/`*](https://github.com/shivammittal2005/Inventory_Analysis/blob/main/3\)%20Dashboard/Dashboard_Overview.png)
+![Preview of the Dashboard](https://github.com/shivammittal2005/Inventory_Analysis/blob/main/3\)%20Dashboard/Dashboard_Overview.png)
 
 ---
 
