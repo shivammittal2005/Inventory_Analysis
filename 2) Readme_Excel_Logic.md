@@ -8,7 +8,7 @@ This folder contains a detailed reference of all Excel and DAX formulas used to 
 
 ### 1. Annual Sale Quantity  
 💬 Calculates total quantity sold in the last 12 months for each SKU.  
-🧮  
+
 ```dax
 CALCULATE(
   SUM('Past Orders'[Order Quantity]),
@@ -18,21 +18,21 @@ CALCULATE(
 
 ### 2. Annual Revenue  
 💬 Multiplies unit price with the annual quantity sold.  
-🧮  
+
 ```dax
 Stock[Annual Sale Quantity] * Stock[Unit Price]
 ```
 
 ### 3. Revenue Share %  
 💬 Percentage contribution of each SKU to total annual revenue.  
-🧮  
+ 
 ```dax
 100 * Stock[Annual Revenue] / SUM(Stock[Annual Revenue]) + 0
 ```
 
 ### 4. Cumulative Revenue Share  
 💬 Running total of revenue share to apply ABC classification.  
-🧮  
+ 
 ```dax
 CALCULATE(
   SUM(Stock[Revenue share %]),
@@ -41,26 +41,30 @@ CALCULATE(
 
 ### 5. ABC Category  
 💬 Segments SKUs into A, B, or C classes based on cumulative revenue.  
-🧮  
+ 
 ```dax
 IF(Stock[Cumulative share] <= 70, "A [High Value]",
    IF(Stock[Cumulative share] <= 90, "B [Medium Value]", "C [Low Value]"))
 ```
 
+
+
 ---
+
+
 
 ## 📈 XYZ Classification (Demand-Based)
 
 ### 6. Weekly Demand Table  
 💬 Generates weekly intervals for tracking demand trends.  
-🧮  
+ 
 ```dax
 GENERATESERIES(MAX('Past Orders'[Order Date]) - 364, MAX('Past Orders'[Order Date]), 7)
 ```
 
 ### 7. Weekly SKU Demand  
 💬 Calculates demand for each SKU in each week.  
-🧮  
+ 
 ```dax
 CALCULATE(
   SUM('Past Orders'[Order Quantity]),
@@ -72,7 +76,7 @@ CALCULATE(
 
 ### 8. Average Weekly Demand  
 💬 Finds average of weekly demand for each SKU.  
-🧮  
+
 ```dax
 CALCULATE(
   AVERAGE('Weekly Demand Sheet'[Weeks demand]),
@@ -81,7 +85,7 @@ CALCULATE(
 
 ### 9. Standard Deviation of Weekly Demand  
 💬 Measures variability in weekly demand.  
-🧮  
+ 
 ```dax
 CALCULATE(
   STDEV.P('Weekly Demand Sheet'[Weeks demand]),
@@ -90,7 +94,7 @@ CALCULATE(
 
 ### 10. Coefficient of Variation (CV)  
 💬 Ratio of standard deviation to average demand — used for ranking volatility.  
-🧮  
+
 ```dax
 IF(Stock[SD of weekly demand] > 0,
    Stock[SD of weekly demand] / Stock[Average weekly demand],
@@ -99,33 +103,37 @@ IF(Stock[SD of weekly demand] > 0,
 
 ### 11. XYZ Category  
 💬 Classifies demand variability: X (uniform), Y (variable), Z (uncertain).  
-🧮  
+
 ```dax
 IF(Stock[CV rank] <= 0.2 * MAX(Stock[CV rank]), "X [Uniform Demand]",
    IF(Stock[CV rank] <= 0.5 * MAX(Stock[CV rank]), "Y [Variable demand]", "Z [Uncertain demand]"))
 ```
 
+
+
 ---
+
+
 
 ## 🧮 Inventory Metrics
 
 ### 12. Value in Warehouse  
 💬 Total value of current stock.  
-🧮  
+ 
 ```dax
 Stock[Current Stock Quantity] * Stock[Unit Price]
 ```
 
 ### 13. Inventory Turnover Ratio  
 💬 How efficiently stock is moving (revenue ÷ value in warehouse).  
-🧮  
+ 
 ```dax
 SUM(Stock[Annual Revenue]) / SUM(Stock[Value in Warehouse])
 ```
 
 ### 14. Peak Weekly Demand  
 💬 Maximum demand in any week for each SKU.  
-🧮  
+
 ```dax
 CALCULATE(MAX('Weekly Demand Sheet'[Weeks demand]),
   FILTER('Weekly Demand Sheet', Stock[SKU ID] = 'Weekly Demand Sheet'[SKU ID]))
@@ -133,7 +141,7 @@ CALCULATE(MAX('Weekly Demand Sheet'[Weeks demand]),
 
 ### 15. Safety Stock  
 💬 Buffer stock based on peak demand and lead time variability.  
-🧮  
+ 
 ```dax
 (Stock[Peak Weekly demand] * Stock[Maximum Lead Time (days)] / 7) -
 (Stock[Average weekly demand] * Stock[Average Lead Time (days)] / 7)
@@ -141,7 +149,7 @@ CALCULATE(MAX('Weekly Demand Sheet'[Weeks demand]),
 
 ### 16. Reorder Point  
 💬 Point at which new stock should be ordered.  
-🧮  
+  
 ```
 Safety Stock + (Average Weekly Demand × Average Lead Time in weeks)
 ```
