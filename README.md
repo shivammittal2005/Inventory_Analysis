@@ -1,96 +1,149 @@
-# 📦 Inventory Management Analysis using ABC & XYZ Classification 📊
+# 📦 Inventory Analysis & Replenishment Dashboard
 
-This project is a comprehensive inventory analytics solution that leverages **data classification**, **demand forecasting**, and **interactive visualization** to drive intelligent inventory decisions. It blends structured Excel modeling with dynamic Power BI dashboards to reveal key insights for optimizing stock levels, replenishment strategy, and overall supply chain performance.
-
----
-
-## 🚀 What This Project Does
-
-✔️ Classifies SKUs using **ABC analysis** (based on revenue contribution)  
-✔️ Segments SKUs using **XYZ analysis** (based on demand variability)  
-✔️ Calculates core inventory KPIs like **Inventory turnover**, **Safety stock**, and **Reorder points**  
-✔️ Visualizes actionable trends through an interactive **Power BI dashboard**  
-
-Together, these components help organizations:
-
-- ✅ Reduce overstock and dead inventory  
-- ✅ Improve availability of critical SKUs  
-- ✅ Make data-backed purchasing decisions  
-- ✅ Streamline supply chain and warehouse operations  
+An end-to-end inventory analytics project combining **SQL, Excel/DAX and Power BI** to classify SKUs, measure demand variability, monitor stock efficiency and prioritise replenishment decisions.
 
 ---
 
-## 📊 Core Techniques & Insights
+## 🚀 Project Scope
 
-### 🔢 **ABC Analysis**  
-Categorizes products by their **impact on total revenue**:
-- **A:** High-value items (top 70%)
-- **B:** Moderate-value items (next 20%)
-- **C:** Low-value items (bottom 10%)
+- Classifies SKUs using **ABC analysis** based on annual revenue contribution
+- Segments SKUs using **XYZ analysis** based on weekly demand variability
+- Calculates **safety stock, reorder points, inventory turnover and warehouse value**
+- Uses SQL to validate segmentation and identify replenishment-risk SKUs
+- Presents operational KPIs through an interactive **Power BI dashboard**
 
-### 📈 **XYZ Analysis**  
-Segments items by **demand predictability**:
-- **X:** Uniform demand (low variation)
-- **Y:** Variable demand
-- **Z:** Uncertain demand (high variation)
-
-By combining these, inventory managers can adopt differentiated strategies:  
-e.g., prioritize A-X items for forecasting, minimize C-Z exposure.
+The analysis covers **303 SKUs** and **33,919 historical order records**.
 
 ---
 
-## 🧮 Formula Logic
+## 📊 Analytical Framework
 
-All new columns and derived metrics in the dataset were created using advanced **Excel/DAX formulas**. This includes:
+### ABC classification
 
-- Average and peak weekly demand  
-- Safety stock & reorder point logic  
-- Coefficient of variation & CV ranking  
-- Inventory turnover ratio  
+- **A:** high-value items contributing the first 70% of annual revenue
+- **B:** medium-value items contributing the next 20%
+- **C:** remaining low-value items
 
-📎 Formula explanations are available in: <space> [2) Readme_Excel_Logic.md](https://github.com/shivammittal2005/Inventory_Analysis/blob/5708bf3a66d1f72e670976e66511399ecdb222d3/2\)%20Readme_Excel_Logic.md) 
+### XYZ classification
+
+- **X:** most predictable demand
+- **Y:** moderately variable demand
+- **Z:** highly uncertain demand
+
+Combining the two classifications supports differentiated decisions—for example, tighter monitoring of high-value AX/AZ items and lower working-capital exposure for CZ items.
+
+---
+
+## 🧮 Inventory Metrics
+
+The Excel/DAX model calculates:
+
+- Annual sales quantity and annual revenue
+- Revenue contribution and cumulative contribution
+- Average and peak weekly demand
+- Standard deviation and coefficient of variation
+- Safety stock
+- Reorder point
+- Inventory turnover
+- Current value in warehouse
+
+Detailed formulas are documented in [`2) Readme_Excel_Logic.md`](2%29%20Readme_Excel_Logic.md).
+
+---
+
+## 🗃️ SQL Analysis Layer
+
+The folder [`4) SQL Analysis`](4%29%20SQL%20Analysis/) adds a reproducible SQL layer using the same source data.
+
+It includes:
+
+- ABC and XYZ classification queries
+- Replenishment-risk prioritisation
+- ABC-XYZ segment summaries
+- Monthly demand analysis
+- Ready-to-open SQLite database
+- Query outputs in CSV and Excel formats
+
+SQL concepts demonstrated:
+
+- Joins
+- CTEs and recursive CTEs
+- Aggregations
+- Window functions
+- Date functions
+- Conditional logic
+- Reusable views
+
+See [`4) SQL Analysis/README_SQL.md`](4%29%20SQL%20Analysis/README_SQL.md) for methodology and execution steps.
+
 ---
 
 ## 🛠 Tools & Technologies
 
-- **Microsoft Excel** – Data cleaning, preprocessing, and logic modeling  
-- **DAX/PowerPivot** – Used for calculations and dynamic measures 
-- **Power BI** – Interactive dashboard development  
- 
+- **SQL / SQLite** — SKU classification, demand analysis and replenishment prioritisation
+- **Microsoft Excel** — Data cleaning and source-data validation
+- **DAX / PowerPivot** — Inventory calculations and dynamic measures
+- **Power BI** — Interactive dashboarding and KPI monitoring
 
 ---
 
 ## 📸 Dashboard Preview
 
-> A powerful, filterable dashboard that brings the numbers to life.
+The dashboard supports:
 
-- See SKUs by reorder status
-- Filter by ABC/XYZ class
-- Track revenue and demand patterns over time
-- Visualize stock efficiency (turnover, value in warehouse)
+- Filtering by ABC and XYZ class
+- Monitoring reorder status
+- Tracking revenue and demand patterns
+- Reviewing inventory turnover and warehouse value
 
-![Preview of the Dashboard](https://github.com/shivammittal2005/Inventory_Analysis/blob/main/3\)%20Dashboard/Dashboard_Overview.png)
+![Dashboard Overview](3%29%20Dashboard/Dashboard_Overview.png)
+
+---
+
+## 📌 Repository Structure
+
+```text
+Inventory_Analysis/
+├── 1) Inventory Data.xlsx
+├── 2) Readme_Excel_Logic.md
+├── 3) Dashboard/
+│   ├── Dashboard_Overview.png
+│   └── Inventory_Dashboard.pbit
+├── 4) SQL Analysis/
+│   ├── README_SQL.md
+│   ├── inventory_analysis.db
+│   ├── SQL_Analysis_Results.xlsx
+│   ├── Input Data/
+│   ├── SQL Scripts/
+│   └── Results/
+└── README.md
+```
 
 ---
 
 ## 📌 Key Outcomes
 
-- Categorized 303 SKUs using dual classification
-- Identified reorder needs and high-value, low-performing items
-- Visualized demand and inventory behavior over time
-
-This solution enables **inventory managers, analysts, and supply chain planners** to act decisively based on data — not guesswork.
+- Classified **303 SKUs** using a combined ABC-XYZ framework
+- Identified high-value SKUs requiring tighter replenishment monitoring
+- Prioritised stock risks using safety-stock and reorder-point thresholds
+- Added a reproducible SQL layer alongside the existing Excel/DAX analysis
+- Built an interactive Power BI dashboard for ongoing inventory monitoring
 
 ---
 
 ## 📂 Get Started
 
-Clone or download this repository. Open the `.pbix` file in Power BI Desktop and the Excel workbook to explore the logic behind the visuals.
-
 ```bash
 git clone https://github.com/shivammittal2005/Inventory_Analysis.git
 ```
 
+Open:
+
+1. `1) Inventory Data.xlsx` to inspect the source data
+2. `3) Dashboard/Inventory_Dashboard.pbit` for the Power BI dashboard
+3. `4) SQL Analysis/inventory_analysis.db` for the completed SQL model
+4. `4) SQL Analysis/SQL Scripts/` to review the query logic
+
 ---
 
-📍 *Efficient inventory is smart inventory — and it starts with clean, structured analysis.*
+*The SQL component is an additional analysis and validation layer; the existing Power BI dashboard continues to use the Excel/DAX data model.*
