@@ -1,0 +1,2 @@
+stock_skus,ordered_skus,order_rows,first_order_date,last_order_date,critical_skus,reorder_required_skus,healthy_skus
+303,290,33919,2019-01-30,2020-06-13,282,2,19
